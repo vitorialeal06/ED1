@@ -7,7 +7,7 @@ int main(){
     scanf("%i",&n);
 
     TLinkedList* list = TLinkedList_create();
-    while(n>0){
+    while(n>10){
         TLinkedList_insert_end(list, n);
         int sum = 0;
         int copy_n = n;
