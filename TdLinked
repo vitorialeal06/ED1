@@ -1,0 +1,18 @@
+#ifndef TDLINKED_LIST_H
+#define TDLINKED_LIST_H
+#include <stdbool.h>
+
+typedef struct tdLinked_list TdLinkedList;
+
+TdLinkedList *TCircList_create();
+/**
+ * Insere um elemento inteiro na lista duplamentew linkada
+ */
+bool TCircList_insert_begin(TdLinkedList *, int);
+/**
+ * Imprime a lista duplamente linkada
+ */
+bool TdLinkedList_insert_end(TdLinkedList *, int);
+void TdLinkedList_print(TdLinkedList *);
+
+#endif
