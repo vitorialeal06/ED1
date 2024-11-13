@@ -53,9 +53,9 @@ bool pop(Stack* list, int* info){
     return true;
 }
 
-int head(Stack* list, int info){
+int head(Stack* list, int* info){
     if(empty(list)) return false;
-    info = list->inicio->info;
+    info* = list->inicio->info;
     return true;
 }
 
