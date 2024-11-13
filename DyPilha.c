@@ -43,7 +43,7 @@ bool push(Stack* list, int info){
 }
 
 bool pop(Stack* list, int* info){
-    if(empty(list)) return false;
+    if(empty(list) || list== NULL) return false;
     info* = list->inicio->info;
     TNo* aux = list->inicio;
     list->inicio = list->inicio->prox;
