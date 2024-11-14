@@ -1,0 +1,60 @@
+#include "DyPilha.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_stack(Stack *stack)
+{
+    int item;
+    while (Stack_pop(stack, &item))
+        printf("%c", item);
+    putchar(' ');
+}
+void comparacao(int abre, int fecha)
+{
+    if (abre == fecha)
+        printf("certo");
+    else
+    {
+        printf("errado");
+    }
+}
+
+int main()
+{
+    int retorn;
+    int abre = 0, fecha = 0;
+    // Ler a string
+    char string[1024];
+    fgets(string, 1024, stdin);
+    Stack *lista = Stack_create();
+    Stack *stack = Stack_create();
+    for (int i = 0; i < strlen(string); i++)
+    {
+        // for(int i = 0; i <strlen(string); i++){
+        // if(string[i] == '\n')
+        //     break;
+        // if(string[i] == '-' )
+        //     print_stack(stack);
+        //  else
+        Stack_push(stack, string[i]);
+    }
+
+    for (int j = 0; j < strlen(stack); j++)
+    {
+        while (Stack_pop(stack, &retorn))
+        {
+            if (retorn == '(')
+                abre++;
+            if (retorn == ')')
+                fecha++;
+            if (retorn == '-')
+                comparacao(abre, fecha);
+
+            else
+                Stack_push(lista, retorn);
+        }
+    }
+    if (!Stack_is_empty(stack))
+        print_stack(stack);
+    return 0;
+}
