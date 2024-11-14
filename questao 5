@@ -1,0 +1,44 @@
+#include "DyPilha.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_stack(Stack *stack)
+{
+    int item;
+    while (Stack_pop(stack, &item))
+        printf("%c \n", item);
+    putchar(' ');
+}
+
+int main(){
+
+    int tirado;
+    char string[1024];
+    fgets(string, 1024, stdin);
+    Stack *stack = Stack_create();
+
+    for(int i =0;i<strlen(string);i++){
+        if(string[i] == '\n')
+            break;
+        else
+            Stack_push(stack, string[i]);
+
+    }
+    for (int j = 0;j<strlen(string);j++){
+        if(string[j] == '\n')
+            break;
+        
+        Stack_pop(stack, &tirado);
+
+        if(string[j] == tirado)
+            continue;
+            
+        else{
+            printf(" nao é polidromo");
+            break;
+        }
+
+    }
+
+
+}
