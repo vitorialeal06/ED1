@@ -1,0 +1,37 @@
+#include "DyPilha.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_stack(Stack *stack)
+{
+    int item;
+    while (Stack_pop(stack, &item))
+        printf("%d \n", item);
+    putchar(' ');
+}
+
+int main(){
+
+     int V[] = {1,2,3,4,5};
+     int F[] = {1,3,3,4,5};
+     int temp; 
+    Stack *stack = Stack_create();
+    Stack *lista = Stack_create();
+    Stack *varia = Stack_create();
+
+    for(int i =0;i<5;i++){
+       Stack_push(stack, V[i]);
+    }
+
+    for(int j =0;j<sizeof(V)/sizeof(int);j++){
+        Stack_push(lista, F[j]);
+    }
+   for(int k = 0;k<sizeof(V)/sizeof(int);k++){
+        if(V[k] != F[k]){
+            printf("nao é igual");
+        }
+
+   }
+
+
+}
