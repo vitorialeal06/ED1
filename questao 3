@@ -1,0 +1,35 @@
+#include "DyPilha.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_stack(Stack *stack)
+{
+    int item;
+    while (Stack_pop(stack, &item))
+        printf("%c \n", item);
+    putchar(' ');
+}
+
+int main(){
+    int valor;
+    char string[1024];
+    fgets(string, 1024, stdin);
+    Stack *stack = Stack_create();
+    for(int i = 0; i< strlen(string);i++){
+        if(string[i] == '('){
+            Stack_push(stack, string[i]);
+        }
+        if(string[i] == ')'){
+            Stack_pop(stack, &valor);
+        }
+    }
+    
+    print_stack(stack);
+
+    if(Stack_is_empty(stack))
+        printf("certo");
+    else{
+        printf("erro");
+    }    
+    
+}
