@@ -1,0 +1,39 @@
+#include "DyPilha.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_stack(Stack *stack)
+{
+    int item;
+    while (Stack_pop(stack, &item))
+        printf("%d \n", item);
+    putchar(' ');
+}
+
+int main(){
+
+    int V1[] = {1,2,3,4,5};
+    int item;
+
+    Stack* pilha1 = Stack_create();
+    Stack* aux = Stack_create();
+    Stack* pilha2 = Stack_create();
+
+    for(int i = 0;i<sizeof(V1)/sizeof(int);i++){
+        Stack_push(pilha1, V1[i]);
+    }
+
+    print_stack(pilha1);
+
+    while(Stack_pop(pilha1, &item)){
+        Stack_push(aux, item);
+    }
+    
+    while(Stack_pop(aux, &item)){
+        Stack_push(pilha2, item);
+    }
+
+    print_stack(pilha2);
+}
+
+
